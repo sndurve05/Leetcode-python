@@ -1,22 +1,44 @@
 def restoreIpAddresses( s):
         
     output=[]
-    def backtrack(num,path,start=0,dot=0):
-        if dot>3:
+    def backtrack(path,start=0,dot=0):
+
+        if dot>4:
             return 
-        if dot==3 and len(path)==len(s)+3:
+        if dot==4 and start==len(s):
             output.append(path)
             return
-            
-        for j in range(start,len(s)):
+        
+        if dot <3:
+            for i in range(start+1,start+4):
 
-            for i in range(start+1,len(s)+1):
-                num = s[start:j]
-                if (len(num)>1 and num[0]=="0") or (int(num)>255):
-                    continue
+                if i > len(s):
+                    break
+                 
+                num = s[start:i]
 
-                path = num + "."
-                backtrack("",path,j,dot+1)
+                if (len(num)>1 and num[0]=="0"):
+                    break
+
+                if (int(num)>255):
+                    break
                 
-      
+                backtrack(path +num+".",i,dot+1)
+                
+
+        elif dot==3 :
+            if start==(len(s)):
+                return
+            num = s[start:]
+
+            if (len(num)>1 and num[0]=="0") :
+                return
+            
+            if (int(num)>255) or len(num)>3:
+                return
+            backtrack(path+num,len(s),dot+1)
+
+    backtrack("")
     return output
+
+print(restoreIpAddresses("101023"))
