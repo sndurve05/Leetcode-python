@@ -15,4 +15,4 @@ def moveZeroes(nums):
         i+=1
     return nums
 
-print(moveZeroes([2,1]))
+print(moveZeroes([2,1,1,2]))

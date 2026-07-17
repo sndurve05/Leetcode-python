@@ -11,4 +11,3 @@ def f(num):
     return f(num)
    
     
-print(f(38))

@@ -16,4 +16,4 @@ def lengthOfLongestSubstring( s):
                 
         return max_length,string
 
-print(lengthOfLongestSubstring("abcabcbb"))
+print(lengthOfLongestSubstring("abcabcbbababba"))

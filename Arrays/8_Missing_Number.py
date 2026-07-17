@@ -18,3 +18,5 @@ class Solution(object):
         n=len(nums)+1
         true_sum = (n*(n-1))//2
         return (true_sum - sum(nums))
+
+#
